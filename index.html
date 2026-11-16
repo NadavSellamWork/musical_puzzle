@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Musical Puzzle</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎼</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Background decorations ===== -->
+  <div class="bg" aria-hidden="true">
+    <div class="glow g1"></div>
+    <div class="glow g2"></div>
+    <div class="clef">𝄞</div>
+    <div class="staff top"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="staff mid"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="notes" id="floaters"></div>
+    <div class="keys" id="keys"></div>
+  </div>
+
+  <main>
+    <!-- ===== Home: pick a piece ===== -->
+    <section id="home">
+      <h1>Musical Puzzle</h1>
+      <p class="sub">Listen closely, then put the music back in order&nbsp;♪</p>
+      <div class="grid" id="pieceGrid"></div>
+    </section>
+
+    <!-- ===== Puzzle ===== -->
+    <section id="game" hidden>
+      <div class="topbar">
+        <button class="btn ghost" id="backBtn">← All pieces</button>
+        <div class="titlebox">
+          <h2 id="gameTitle"></h2>
+          <div id="gameComposer"></div>
+        </div>
+      </div>
+
+      <p class="hint" id="message">Loading the music…</p>
+
+      <div class="board" id="board"></div>
+
+      <div class="controls">
+        <button class="btn primary" id="playAll">▶ Play in this order</button>
+        <button class="btn" id="stopBtn">■ Stop</button>
+        <button class="btn good" id="checkBtn">✓ Check my answer</button>
+        <button class="btn ghost" id="shuffleBtn">🔀 Shuffle again</button>
+        <label class="toggle"><input type="checkbox" id="colorHint"> Show color hints</label>
+      </div>
+    </section>
+  </main>
+
+  <div id="confetti" aria-hidden="true"></div>
+  <script src="pieces.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
